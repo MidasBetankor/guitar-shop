@@ -12,6 +12,7 @@ import {Provider} from 'react-redux';
 import reducers from 'reducers';
 import Layout from './node_modules/containers/layout';
 import Guitars from './node_modules/containers/guitars';
+import Guitar from './node_modules/containers/guitar'
 
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(thunk)
@@ -25,6 +26,7 @@ ReactDOM.render(
       <Route component={Layout}>
         <Route path='/' component={Guitars}/>
       </Route>
+      <Route path='guitars/:id' component={Guitar} />
     </Router>
   </Provider>,
   document.getElementById('root')
