@@ -25,6 +25,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route component={Layout}>
         <Route path='/' component={Guitars}/>
+        <Route path='categories/:id' component={Guitars}/>
       </Route>
       <Route path='guitars/:id' component={Guitar} />
     </Router>
