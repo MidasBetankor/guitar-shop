@@ -9,11 +9,11 @@ import {browserHistory, Router, Route} from 'react-router';
 import {syncHistoryWithStore} from 'react-router-redux';
 import {Provider} from 'react-redux';
 
-import reducers from 'reducers';
-import Layout from './node_modules/containers/layout';
-import Guitars from './node_modules/containers/guitars';
-import Guitar from './node_modules/containers/guitar';
-import Basket from './node_modules/containers/basket';
+import reducers from './reducers/index';
+import Layout from './containers/layout/Layout';
+import Guitars from './containers/guitars/Guitars';
+import Guitar from './containers/guitar/Guitar';
+import Basket from './containers/basket/Basket';
 
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(thunk)
