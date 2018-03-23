@@ -1,0 +1,46 @@
+.basket {
+  display: flex;
+  flex-direction: column;
+  background-color: #9E9E9E;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding: 5px;
+}
+.basket_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px; 
+  flex: 1 0 auto;
+}
+.basket_side {
+  width: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-right: 100px;
+}
+.basket_btns {
+  display: flex;
+  flex-direction: row;
+}
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+@media all and (max-width: 420px) {   
+  .basket_row {
+    flex-direction: column;
+  }
+}
+@media all and (max-width: 1024px) {
+  .basket_row {
+    display: flex;
+    flex-direction: column;
+  }
+}

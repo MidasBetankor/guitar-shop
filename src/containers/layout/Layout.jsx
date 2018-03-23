@@ -1,20 +1,23 @@
 import React from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 import './layout.css';
+import 'semantic-ui-css/semantic.min.css';
 
 const Layout = ({children}) => {
   return (
-    <div className="view-container">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-3">
+    <div className="root">
+      <Header />
+        <div className="layout-row">
+          <div className="layout-sidebar">
             <Sidebar />
           </div>
-          <div className="col-md-9">
+          <div className="layout-main">
             {children}
           </div>
         </div>
-      </div>
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,36 @@
+.title{
+  border-radius: 5px;
+  font-family: cursive;
+  font-style: italic;
+  text-align: center;
+  width: 800px;
+  background-color: #9E9E9E;
+  padding: 10px;
+}
+.title:hover {
+  border-radius: 7px;
+  background-color: #BDBDBD; 
+  transition: all 1.5s;
+  text-decoration: underline;
+  text-align: center;
+  text-shadow: crimson;
+  width: 600px;
+  padding: 10px;
+}
+.head {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media all and (max-width: 420px) {   
+  .title:hover {
+    width: 400px;
+  }
+}
+@media all and (max-width: 1024px) {
+  .title:hover {
+    width: 400px;
+  }
+}

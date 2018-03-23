@@ -12,7 +12,7 @@ export default [
     color: "2-Tone Sunburst",
     frets: "21",
     pickups: "S-S-S",
-    fretboardWidth: "42 мм"
+    fretboard: "42 мм"
   },
   {
     id: "2",
@@ -27,7 +27,7 @@ export default [
     color: "Brown Sunburst",
     frets: "21",
     pickups: "S-S",
-    fretboardWidth: "42 мм"
+    fretboard: "42 мм"
   },
   {
     id: "3",
@@ -42,7 +42,7 @@ export default [
     color: "Black Metallic",
     frets: "24",
     pickups: "H-H",
-    fretboardWidth: "43 мм"
+    fretboard: "43 мм"
   },
   {
     id: "4",
@@ -57,7 +57,7 @@ export default [
     color: "Black",
     frets: "24",
     pickups: "H-H",
-    fretboardWidth: "55 мм"
+    fretboard: "55 мм"
   },
   {
     id: "5",
@@ -72,7 +72,7 @@ export default [
     color: "Satin Ebony",
     frets: "22",
     pickups: "H",
-    fretboardWidth: "43 мм"
+    fretboard: "43 мм"
   },
   {
     id: "6",
@@ -87,6 +87,6 @@ export default [
     color: "Black",
     frets: "22",
     pickups: "H-S-H",
-    fretboardWidth: "42 мм"
+    fretboard: "42 мм"
   }
 ]

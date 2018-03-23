@@ -1,0 +1,20 @@
+@keyframes shadow {
+  from {text-shadow: 0 0 3px black;}
+  50% {text-shadow: 0 0 30px black;}
+  to {text-shadow: 0 0 3px black;}
+}
+
+@keyframes foo {
+  30% {
+    transform: rotateY(360deg);
+  }
+  65% {
+    transform: translateY(-30px) rotateY(-360deg) scale(1.5);
+  }
+  90% {
+    transform: translateY(10px) scale(0.75);
+  }
+}
+
+
+

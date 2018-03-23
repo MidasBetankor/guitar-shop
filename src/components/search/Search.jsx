@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
-import {searchGuitar} from '../../actions/actions';
+import  { Button, Input, Icon } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
+import {
+  searchGuitar, 
+  fetchGuitars
+} from '../../actions/actions';
 
 import './search.css';
 
@@ -23,26 +27,26 @@ class Search extends Component {
 
   handleSubmit (event) {
     event.preventDefault();
-    this.props.searchGuitar(this.state.value);
+    if (this.state === '') {
+      return fetchGuitars();
+    } else {
+      this.props.searchGuitar(this.state.value);
+    }
   }
 
   render() {
     return (
-      <div className="well blosd">
-        <h3 className="lead">Quick shop</h3>
-        <div className="input-group">
+      <div className='search'>
+        <h3>Quick shop</h3>
+        <div className='search-form'>
           <form onSubmit={this.handleSubmit}>
-            <input 
+            <Input 
               onChange={this.handleChange}
-              type="text"
-              className="form-control"
             /> 
           </form>
-          <span className="input-group-btn">
-            <button className="btn btn-default">
-              <span className="glyphicon glyphicon-search"/>
-            </button>
-          </span>
+          <Button className='btn'>
+            <Icon name='search'/>
+          </Button>
         </div>
       </div>
     );

@@ -1,0 +1,8 @@
+.all {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+h4 {
+  text-align: center;
+}

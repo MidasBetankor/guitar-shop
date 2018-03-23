@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import R from 'ramda';
+import { Card, Button, Icon } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
 import {
   fetchGuitars,
@@ -23,57 +25,44 @@ class Guitars extends Component {
     const {addGuitarToBasket} = this.props;
     const shortDescription = `${R.take(60, guitar.description)}...`;
     return (
-      <div className="col-sm-4 col-lg-4 col-md-4 book-list" key={index}>
+      <Card raised className="guitar" key={index}>
         <div className="thumbnail">
-          <img
-            className="img-thumbnail"
-            src={guitar.image}
-            alt={guitar.name}
-          />
+          <img src={guitar.image} alt={guitar.name} />
           <div className="caption">
-            <h4 className="pull-right">${guitar.price}</h4>
+            <h4>${guitar.price}</h4>
             <h4>
               <Link to={`/guitars/${guitar.id}`}>
                 {guitar.name}
               </Link>
               <p>{shortDescription}</p>
-              <p className="itemButton">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => addGuitarToBasket(guitar.id)}
-                >
-                  Buy now
-                </button>
-                <Link
-                  to={`/guitars/${guitar.id}`}
-                  className="btn btn-default"
-                >
-                  More info
+              <p className="item_button">
+                <Button className='btn' onClick={() => addGuitarToBasket(guitar.id)}>
+                  Buy now &nbsp; <Icon name='shop'/>
+                </Button>
+                <Link to={`/guitars/${guitar.id}`}>
+                  <Button className='btn'>
+                    More info &nbsp; <Icon name='idea'/>
+                  </Button>  
                 </Link>
               </p>
             </h4>
           </div>
         </div>
-      </div>
+      </Card>
     )
   }
 
   render() {
     const {guitars, loadMoreGuitars} = this.props;
     return (
-      <div>
-        <div className="books row">
+      <div className='guitars-block'>
+        <Card.Group className="guitars">
           {guitars.map((guitar, index) => this.renderGuitar(guitar, index))}
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <button
-              onClick={loadMoreGuitars}
-              className="pull-right btn btn-primary"
-            >
-              Load more
-            </button>
-          </div>
+        </Card.Group>
+        <div className="btn-more">
+          <Button className='btn' onClick={loadMoreGuitars}>
+            Load more &nbsp; <Icon name='external share'/>
+          </Button>
         </div>
       </div>
     );

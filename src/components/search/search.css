@@ -1,0 +1,14 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+  border-radius: 3px;
+  padding: 0;
+}

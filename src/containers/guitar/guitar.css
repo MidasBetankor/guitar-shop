@@ -1,0 +1,135 @@
+.main_content {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  flex: 1 0 auto;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 5px;
+  background-color: #9E9E9E;
+  border-radius: 3px;
+  border: 1px solid darkgray;
+}
+.guitar_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #B0BEC5;
+  padding: 10px;
+  margin-right: 2px;
+  
+}
+.guitar_content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.guitar_info {
+  display: flex;
+  flex-direction: column;
+  background-color: #B0BEC5;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid darkgray;
+  flex: 1 0 auto;
+}
+.aside {
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #B0BEC5;
+  border-radius: 3px;
+  border: 1px solid darkgray;
+  min-height: 100%;
+}
+.quick {
+  min-width: 100%;
+  text-align: center;
+  font-weight: bolder;
+  font-style: initial;
+}
+.quick_shop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+.list_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+ol {
+  height: 20px;
+}
+.fields {
+  flex: 1 0 auto;
+}
+.name_and_price {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.btn-grp {
+  margin: 30px 10px 20px 10px;
+}
+.basket_side {
+  min-width: 300px;
+}
+@media all and (max-width: 420px) {
+  .guitar_row {
+    min-width: 100%;
+    padding: 10px;
+    flex-direction: column;
+  }
+  .list_item {
+    width: 200px;
+    padding-right: 30px;
+    justify-content: space-between;
+  }
+  .aside {
+    padding-top: 10px;
+    margin-top: 5px;
+  }
+  .name_and_price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .guitar_row {
+    min-width: 100%;
+    padding: 10px;
+    flex-direction: column;
+  }
+  .list_item {
+    width: 200px;
+    padding-right: 30px;
+    justify-content: space-between;
+  }
+  .main_content {
+    flex-direction: column;
+  }
+  .aside {
+    padding-top: 10px;
+    margin-top: 5px;
+  }
+  .name_and_price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+}

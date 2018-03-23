@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import R from 'ramda';
 import BasketCart from '../../components/basketCart/BasketCart';
-
+import Footer from '../../components/footer/Footer';
+import { Button, Icon } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 import {
   fetchGuitarById,
   addGuitarToBasket
@@ -28,42 +30,38 @@ class Guitar extends Component {
         'color',
         'frets',
         'pickups',
-        'fretboardWidth'
+        'fretboard'
       ])
       
     )(guitar)
     
     return columnFields.map(([key, value]) => (
-      <div className='column' key={key}>
-        <div className='ab-details-title'>
-          <p>{key}</p>
-        </div>
-        <div className='ab-details-info'>
-          {value}
-        </div>
-      </div>
+      <ol key={key}>
+        <li className='list_item'>
+          <h3>{key}</h3>
+          <p>{value}</p>
+        </li>
+      </ol>
     ))
   }
 
   renderContent () {
     const {guitar} = this.props;
     return (
-      <div className='thumbnail'>
-        <div className='row'>
-          <div className='col-md-6'>
-            <img
-              className='img-thumbnail'
-              src={guitar.image}
-              alt={guitar.name}
-            />
+      <div className='guitar_content'>
+        <div className='guitar_row'>
+          <div>
+            <img src={guitar.image} alt={guitar.name}/>
           </div>
-          <div className='col-md-6'>
+          <div className='fields'>
             {this.renderFields()}
           </div>
         </div>
-        <div className='caption-full'>
-          <h4 className='pull-right'>${guitar.price}</h4>
-          <h4>{guitar.name}</h4>
+        <div className='guitar_info'>
+          <div className='name_and_price'>
+            <h4>{guitar.name}</h4>
+            <h4>${guitar.price}</h4>
+          </div>
           <p>{guitar.description}</p>
         </div>
       </div>
@@ -73,21 +71,19 @@ class Guitar extends Component {
   renderSidebar () {
     const {guitar, addGuitarToBasket} = this.props;
     return (
-      <div>
-        <p className='lead'>Quick shop</p>
-        <BasketCart />
-        <div className='form-group'>
-          <h1>{guitar.name}</h1>
-          <h2>${guitar.price}</h2>
+      <div className='aside'>
+        <div className='quick_shop'>
+          <h3 className='quick'>Quick shop</h3>
+          <BasketCart />
         </div>
-        <Link to='/' className='btn btn-info btn-block'>Back to store</Link>
-        <button
-          type='button'
-          className='btn btn-success btn-block'
-          onClick={() => addGuitarToBasket(guitar.id)}
-        >
-          Add to cart
-        </button>
+        <div className='btn-grp'>
+          <Link to='/'>
+            <Button className='btn'fluid>Back to store &nbsp; <Icon name='arrow left'/></Button>
+          </Link>
+          <Button className='btn' fluid onClick={() => addGuitarToBasket(guitar.id)}>
+            Add to cart &nbsp; <Icon name='shop'/>
+          </Button>
+        </div>
       </div>
     )
   }
@@ -95,17 +91,16 @@ class Guitar extends Component {
   render() {
     const {guitar} = this.props;
     return (
-      <div className="view-container">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-9">
-              {guitar && this.renderContent()}
-            </div>
-            <div className="col-md-3">
-              {guitar && this.renderSidebar()}
-            </div>
+      <div className='info'>
+        <div className='main_content'>
+          <div className='render_content'>
+            {guitar && this.renderContent()}
+          </div>
+          <div className='render_sidebar'>
+            {guitar && this.renderSidebar()}
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
