@@ -1,0 +1,24 @@
+.root {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #9E9E9E;
+}
+.layout-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex: 1 0 auto;
+}
+.layout-sidebar {
+  flex: 0 0 auto;
+}
+@media all and (max-width: 420px) {
+  .layout-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}

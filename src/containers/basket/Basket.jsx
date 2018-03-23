@@ -11,7 +11,9 @@ import {
   cleanBasket,
   basketCheckout
 } from '../../actions/actions';
-
+import { Divider, Image, List, Button, Segment, Icon } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
+import Footer from '../../components/footer/Footer';
 import './basket.css';
 
 
@@ -27,94 +29,88 @@ const isBasketEmpty = R.isEmpty(guitars);
 const renderContent = () => (
   <div>
     {isBasketEmpty && <div>Your shopping cart is empty</div>}
-    <div className='table-responsive'>
-      <table className='table-bordered table-striped table-condensed cf'>
-        <tbody>
+    <Divider />
+    <div>  
           {guitars.map((guitar, index) => {
             return(
-              <tr
-                key={index}
-                className='item-checout'
-              >
-                <td className="first-column-checkout">
-                  <img
-                    className="img-thumbnail"
-                    src={guitar.image}
-                    alt={guitar.name}
-                  />
-                </td>
-                <td>{guitar.name}</td>
-                <td>{guitar.price}</td>
-                <td>{guitar.count}</td>
-                <td>
-                  <button
-                    className='delete-cart'
-                    onClick={() => removeGuitarFromBasket(guitar.id)}
-                  >del</button>
-                </td>
-              </tr>
+              <Segment inverted key={index}>
+                <List divided inverted relaxed>
+                  <List.Item>
+                    <List.Content>
+                      <List.Header>Foto</List.Header>
+                      <Image src={guitar.image} alt={guitar.name}/>
+                    </List.Content>
+                  </List.Item>
+                  <List.Item>
+                    <List.Content>
+                      <List.Header>Guitar name</List.Header>
+                      {guitar.name}
+                    </List.Content>
+                  </List.Item>
+                  <List.Item>
+                    <List.Content>
+                      <List.Header>Coast</List.Header>
+                      {guitar.price}
+                    </List.Content>
+                  </List.Item>
+                  <List.Item>
+                    <List.Content>
+                      <List.Header>Count</List.Header>
+                      {guitar.count}
+                    </List.Content>
+                  </List.Item>
+                  <List.Item>
+                    <List.Content>
+                    <List.Header>Delete</List.Header>
+                      <Button className='btn' color='grey' onClick={() => removeGuitarFromBasket(guitar.id)}>delete</Button>
+                    </List.Content>
+                  </List.Item>
+                </List>
+              </Segment>
             )
           })}
-        </tbody>
-      </table>
     </div>
-    {
-      R.not(isBasketEmpty) &&
-      <div className="row">
-        <div className="pull-right total-user-checkout">
-          <b>Total:</b>
-          ${totalPrice}
-        </div>
-      </div>
-    }
   </div>
 );
 
 const renderSidebar = () => (
-  <div>
-    <div>
-      <Link
-      className='btn btn-info'
-        to='/'
-      >
-        <span className='glyphicon glyphicon-info-sign'/>
-        <span>Continue shopping</span>
+    <div className="basket_side">
+      <Link to='/'>
+        <Button className='btn'>Continue shopping &nbsp; <Icon name='shop'/></Button>
       </Link>
       {
         R.not(isBasketEmpty) &&
-        <div>
-          <button
-            onClick={cleanBasket}
-            className='btn btn-danger'
-          >
-            <span className='glyphicon glyphicon-trash'/>
-            clear cart
-          </button>
-          <button
-            className='btn btn-success'
-            onClick={() => basketCheckout(guitars)}
-          >
-            <span className='glyphicon glyphicon-envelope'/>
-            checkout
-          </button>
+        <div className='basket_btns'>
+          <Button className='btn' onClick={cleanBasket}>
+            clear cart &nbsp; <Icon name='refresh'/>
+          </Button>
+          <Button className='btn' onClick={() => basketCheckout(guitars)}>
+            checkout &nbsp; <Icon name='check circle'/>
+          </Button>
         </div>
       }
     </div>
-  </div>
 );
 
   return (
-    <div className="view-container">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-9">
-            {renderContent()}
-          </div>
-          <div className="coll-md-3">
-            {renderSidebar()}
-          </div>
+    <div className="basket">
+      {
+        R.not(isBasketEmpty) &&
+        <div>
+          <Segment className='total'>
+            <h1>Total coast: ${totalPrice}</h1>
+          </Segment>
+        </div>
+      }
+      <div className="basket_row">
+        <div>
+          {renderContent()}
+        </div>
+        <div>
+          {renderSidebar()}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
@@ -130,6 +126,4 @@ const mapDispatchToProps = {
   basketCheckout
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Basket)
-
-
+export default connect(mapStateToProps, mapDispatchToProps)(Basket);

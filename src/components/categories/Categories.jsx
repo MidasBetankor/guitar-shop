@@ -8,6 +8,7 @@ import R from 'ramda';
 import {getCategories, getActiveCategoryId} from '../../selectors';
 
 import './categories.css';
+import { Button } from 'semantic-ui-react';
 
 const Categories = ({categories, activeCategoryId}) => {
   const renderCategory = (category, index) => {
@@ -22,7 +23,9 @@ const Categories = ({categories, activeCategoryId}) => {
         className={linkClass}
         key={index}
       >
-        {category.name}
+        <Button className='btn' fluid>
+          {category.name}
+        </Button>
       </Link>
     )
   }
@@ -37,15 +40,17 @@ const Categories = ({categories, activeCategoryId}) => {
         to="/"
         className={linkClass}
       >
-      All
+        <Button className='btn' fluid>
+          All
+        </Button>
       </Link>
     )
   }
 
   return (
-    <div className="well">
+    <div>
       <h4>Brand</h4>
-      <div className="list-group">
+      <div className='all'>
         {renderAllCategory()}
         {categories.map((category, index) => renderCategory(category, index))}
       </div>

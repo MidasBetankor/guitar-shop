@@ -7,7 +7,7 @@ import './sidebar.css';
 
 const Sidebar = () => {
   return (
-  <div>
+  <div className='sidebar'>
     <BasketCart />
     <Search />
     <Categories />
