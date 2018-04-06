@@ -6,8 +6,8 @@ import Posts from './components/Posts'
 
 // actions
 import {
-  getQuestions,
-} from '../../actions/stackoverflow'
+  getPosts,
+} from '../../actions/post'
 
 
 const mapStateToProps = state => ({
@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
   })
 
 const mapDispatchToProps = {
-  getQuestions,
+  getPosts,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts)

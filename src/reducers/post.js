@@ -1,6 +1,6 @@
 import { handleActions } from "redux-actions"
 
-import actions from "../actions/stackoverflow"
+import actions from "../actions/post"
 
 export const initialState = {
   isFetching: false,
@@ -10,20 +10,20 @@ export const initialState = {
 
 export default handleActions(
   {
-    [actions.stackoverflow.request]: (state, { payload }) => ({
+    [actions.post.request]: (state, { payload }) => ({
       ...state,
       isFetching: true,
       error: "",
       items: []
     }),
 
-    [actions.stackoverflow.success]: (state, { payload }) => ({
+    [actions.post.success]: (state, { payload }) => ({
       ...state,
       isFetching: false,
       items: payload.items
     }),
 
-    [actions.stackoverflow.error]: (state, { payload }) => ({
+    [actions.post.error]: (state, { payload }) => ({
       ...state,
       isFetching: false,
       error: payload.error

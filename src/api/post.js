@@ -1,7 +1,7 @@
 import { get } from "./api-client"
 
 export default {
-  getQuestions: () => {
+  getPosts: () => {
     return get('posts')
   }
 }

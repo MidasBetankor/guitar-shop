@@ -9,7 +9,7 @@ import '../css/index.css'
 
 class Posts extends Component {
   componentDidMount() {
-    this.props.getQuestions()
+    this.props.getPosts()
   }
 
   render () {
