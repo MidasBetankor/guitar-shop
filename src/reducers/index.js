@@ -7,11 +7,14 @@ import guitarPage from './guitarPage';
 import basket from './basket';
 import categories from './categories';
 
+import post  from './post'
+
 export default combineReducers({
   routing: routerReducer,
   guitars,
   guitarsPage,
   guitarPage,
   basket,
-  categories
+  categories,
+  post,
 })
