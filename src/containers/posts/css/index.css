@@ -1,0 +1,39 @@
+table.list {
+  margin: 0;
+  padding: 0;
+  width: 99%;
+  display: table;
+  border-collapse: separate;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-color: gray;
+}
+table.list th {
+  border: 1px solid #9EB6CE;
+  height: 23px;
+  padding: 4px;
+  background-image: -ms-linear-gradient(top, #f9fcfd 0%, #d2dbe8 100%);
+  background-image: -moz-linear-gradient(top, #f9fcfd 0%, #d2dbe8 100%);
+  background-image: -o-linear-gradient(top, #f9fcfd 0%, #d2dbe8 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f9fcfd), color-stop(100, #d2dbe8));
+  background-image: -webkit-linear-gradient(top, #f9fcfd 0%, #d2dbe8 100%);
+  background-image: linear-gradient(to bottom, #f9fcfd 0%, #d2dbe8 100%);
+}
+table.list th.active {
+  background-image: -ms-linear-gradient(top, #e0e3e4 0%, #b9c2cf 100%);
+  background-image: -moz-linear-gradient(top, #e0e3e4 0%, #b9c2cf 100%);
+  background-image: -o-linear-gradient(top, #e0e3e4 0%, #b9c2cf 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e0e3e4), color-stop(100, #b9c2cf));
+  background-image: -webkit-linear-gradient(top, #e0e3e4 0%, #b9c2cf 100%);
+  background-image: linear-gradient(to bottom, #e0e3e4 0%, #b9c2cf 100%);
+}
+table.list th.sortable {
+  cursor: pointer;
+}
+table.list td {
+  border: 1px solid #d2ddec;
+  height: 23px;
+  cursor: pointer;
+  vertical-align: text-top;
+  padding: 4px;
+}
